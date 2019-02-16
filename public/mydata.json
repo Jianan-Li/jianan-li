@@ -1,0 +1,93 @@
+{
+  "nodes": [
+    {"id": 0, "name": "Jianan", "group": 0},
+
+    {"id": 1, "name": "Music", "group": 1},
+    {"id": 2, "name1": "Musical", "name2": "Instruments", "group": 2},
+    {"id": 3, "name1": "Classical", "name2": "Music", "group": 2},
+    {"id": 4, "name": "Inspirations", "group": 2},
+    {"id": 5, "name1": "Jacob ","name2": "Collier", "group": 3, "link": "https://www.jacobcollier.com/"},
+    {"id": 6, "name1": "Andrew","name2": "Huang", "group": 3, "link": "http://andrewhuang.com/"},
+    {"id": 7, "name": "Tchaikovsky", "group": 3},
+    {"id": 8, "name": "Piano", "group": 3},
+    {"id": 9, "name": "Ukulele", "group": 3},
+
+    {"id": 10, "name1": "Information", "name2": "Organization", "group": 1},
+    {"id": 11, "name": "Notion", "group": 2, "link": "https://www.notion.so"},
+
+    {"id": 12, "name1": "Digital", "name2": "Wellbeing", "group": 1},
+    {"id": 13, "name1": "Center for", "name2": " Humane Tech", "group": 2, "link": "https://humanetech.com/"},
+    {"id": 14, "name1": "Ledger of", "name2": "Harms", "group": 3, "link": "https://ledger.humanetech.com/"},
+    {"id": 15, "name1": "Wholesome", "name2": "Tech Co.", "group": 2, "link": "https://www.wholesome.design"},
+
+    {"id": 16, "name1": "Visual", "name2": "Communication", "group": 1},
+    {"id": 17, "name1": "Interaction", "name2": "Design", "group": 1},
+    {"id": 18, "name3": "Web", "name4": "Design &", "name5": "Development", "group": 2},
+    {"id": 19, "name1": "Data", "name2": "Visualization", "group": 2},
+    {"id": 20, "name": "Illustration", "group": 2},
+    {"id": 21, "name": "Gal Shir", "group": 3, "link": "https://galshir.com/"},
+    {"id": 22, "name": "Vue.js", "group": 3, "link": "https://vuejs.org/"},
+    {"id": 23, "name": "Firebase", "group": 3, "link": "https://firebase.google.com/"},
+    {"id": 24, "name": "AWS", "group": 3, "link": "https://aws.amazon.com/"},
+    {"id": 25, "name": "D3.js", "group": 3, "link": "https://d3js.org/"},
+
+    {"id": 26, "name3": "Self", "name4": "Knowledge &", "name5": "Improvement", "group": 1},
+    {"id": 27, "name": "Self-Discipline", "group": 1},
+    {"id": 28, "name": "Stoicism", "group": 2},
+    {"id": 29, "name1": "Jordan", "name2": "Peterson", "group": 2, "link": "https://jordanbpeterson.com"},
+    {"id": 30, "name1": "The School", "name2": "of Life", "group": 2, "link": "https://www.theschooloflife.com"},
+
+    {"id": 31, "name1": "Healthy", "name2": "Living", "group": 1},
+    {"id": 32, "name": "Experimentation", "group": 1},
+    {"id": 33, "name": "LabLyfe", "group": 2, "link": "https://lablyfe.com/"},
+    {"id": 34, "name1": "Meal", "name2": "Prepping", "group": 2},
+    {"id": 35, "name": "Swimming", "group": 2},
+    {"id": 36, "name1": "What I've", "name2": "Learned", "group": 2, "link": "https://www.youtube.com/channel/UCqYPhGiB9tkShZorfgcL2lA/vname1eos"}
+  ],
+  "links": [
+    {"source": 0, "target": 1, "value": 0},
+    {"source": 1, "target": 2, "value": 1},
+    {"source": 1, "target": 3, "value": 1},
+    {"source": 1, "target": 4, "value": 1},
+    {"source": 2, "target": 8, "value": 2},
+    {"source": 2, "target": 9, "value": 2},
+    {"source": 3, "target": 7, "value": 2},
+    {"source": 4, "target": 5, "value": 2},
+    {"source": 4, "target": 6, "value": 2},
+
+    {"source": 0, "target": 10, "value": 0},
+    {"source": 10, "target": 11, "value": 1},
+
+    {"source": 0, "target": 12, "value": 0},
+    {"source": 12, "target": 13, "value": 1},
+    {"source": 13, "target": 14, "value": 2},
+    {"source": 12, "target": 15, "value": 1},
+
+    {"source": 0, "target": 16, "value": 0},
+    {"source": 0, "target": 17, "value": 0},
+    {"source": 16, "target": 18, "value": 1},
+    {"source": 16, "target": 19, "value": 1},
+    {"source": 16, "target": 20, "value": 1},
+    {"source": 17, "target": 18, "value": 1},
+    {"source": 18, "target": 22, "value": 2},
+    {"source": 18, "target": 23, "value": 2},
+    {"source": 18, "target": 24, "value": 2},
+    {"source": 19, "target": 25, "value": 2},
+    {"source": 20, "target": 21, "value": 2},
+
+    {"source": 0, "target": 26, "value": 0},
+    {"source": 0, "target": 27, "value": 0},
+    {"source": 26, "target": 28, "value": 1},
+    {"source": 26, "target": 29, "value": 1},
+    {"source": 26, "target": 30, "value": 1},
+    {"source": 27, "target": 28, "value": 1},
+
+    {"source": 0, "target": 31, "value": 0},
+    {"source": 0, "target": 32, "value": 0},
+    {"source": 31, "target": 36, "value": 1},
+    {"source": 31, "target": 33, "value": 1},
+    {"source": 31, "target": 34, "value": 1},
+    {"source": 31, "target": 35, "value": 1},
+    {"source": 32, "target": 33, "value": 1}
+  ]
+}
