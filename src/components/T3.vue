@@ -19,9 +19,9 @@
 
         <div class="project-description">
           <p>A simple tic-tac-toe game.</p>
-          <p>This is my first iOS app.</p>
+          <p>This was a quick iOS programming exercise.</p>
           <p>
-            Link to
+            Links to
             <a
               class="underline-link"
               href="https://github.com/Jianan-Li/T3"

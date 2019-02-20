@@ -22,24 +22,31 @@
             After a year of using Google Keep for grocery list, I decided to
             create my own.
           </p>
-          <p>This is my second iOS app.</p>
           <p>
-            Link to
+            Links to
             <a
               class="underline-link"
               href="https://github.com/Jianan-Li/Grocery"
               target="_blank"
               rel="noreferrer"
               >source code</a
-            >
-            and
+            >,
             <a
               class="underline-link"
               href="https://www.figma.com/file/LHeimgr6L0XzblQHEWefetUv/Grocery?node-id=0%3A1"
               target="_blank"
               rel="noreferrer"
               >design file</a
+            >, and
+            <a
+              class="underline-link"
+              href="https://beta.observablehq.com/@jianan-li/visualization-of-my-week"
+              target="_blank"
+              rel="noreferrer"
+              >a visualization</a
             >
+            showing how I spent my time on this project and how it affected my
+            normal schedule.
           </p>
         </div>
 
