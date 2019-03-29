@@ -1,8 +1,12 @@
 <template>
   <div id="Tetris">
-    <!-- <SiteHeader /> -->
     <div class="page-body-modal">
-      <div class="project-youtube-video-container">
+      <div
+        class="project-youtube-video-container"
+        v-bind:class="[
+          this.$route.path == '/' ? 'card-top-round' : 'card-full-round'
+        ]"
+      >
         <iframe
           class="project-youtube-video"
           src="https://www.youtube.com/embed/kC6plYjMdA0"
@@ -54,7 +58,7 @@
           <img
             :src="require('@/assets/tetris/1.jpg')"
             alt="tetris-1"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             When I built the first version on the breadboard, I didn't know that
@@ -70,7 +74,7 @@
           <img
             :src="require('@/assets/tetris/2.jpg')"
             alt="tetris-2"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             In order to enhance the gaming experience, I added an 8 ohm speaker
@@ -88,7 +92,7 @@
           <img
             :src="require('@/assets/tetris/3.jpg')"
             alt="tetris-3"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             I added a 10-segment LED bar graph, driven by a LM3914, to indicate
@@ -105,7 +109,7 @@
           <img
             :src="require('@/assets/tetris/4.jpg')"
             alt="tetris-4"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             I finally replaced the 74HC595 shift registers with a MIC5891 source
@@ -123,7 +127,7 @@
           <img
             :src="require('@/assets/tetris/5.jpg')"
             alt="tetris-5"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             This was my first time designing a PCB and using EAGLE. I used the
@@ -140,7 +144,7 @@
           <img
             :src="require('@/assets/tetris/6.jpg')"
             alt="tetris-6"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             The system is powered by a 2S 7.4V 1300mAh LiPo battery. A 2S LiPo
@@ -157,7 +161,7 @@
           <img
             :src="require('@/assets/tetris/7.jpg')"
             alt="tetris-7"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             This was my first time using SolidWorks. The enclosure and the
@@ -171,7 +175,7 @@
         <div class="project-section">
           <div class="project-section-title">Game Control</div>
           <video
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
             autoplay
             loop
             muted
@@ -194,7 +198,7 @@
         <div class="project-section">
           <div class="project-section-title">GAME OVER</div>
           <video
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
             autoplay
             loop
             muted
@@ -212,27 +216,14 @@
             the game by pressing the START button (below the A and B buttons).
           </p>
         </div>
-
-        <!-- <ProjectNavigation next="floor-piano"></ProjectNavigation> -->
       </div>
     </div>
-    <!-- <SiteFooter /> -->
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import SiteHeader from "@/components/SiteHeader.vue";
-// import SiteFooter from "@/components/SiteFooter.vue";
-// import ProjectNavigation from "@/components/ProjectNavigation.vue";
-
 export default {
   name: "Tetris",
-  components: {
-    // SiteHeader,
-    // SiteFooter,
-    // ProjectNavigation
-  },
   mounted() {
     this.$emit("mounted");
   }

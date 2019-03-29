@@ -38,6 +38,11 @@ export default new Router({
       component: () => import("./views/About.vue")
     },
     {
+      path: "/resume",
+      name: "Resume",
+      component: () => import("./views/Resume.vue")
+    },
+    {
       path: "/Grocery",
       name: "Grocery",
       component: () => import("./views/Grocery.vue")
@@ -46,6 +51,11 @@ export default new Router({
       path: "/T3",
       name: "T3",
       component: () => import("./views/T3.vue")
+    },
+    {
+      path: "/IPDDirectory",
+      name: "IPDDirectory",
+      component: () => import("./views/IPDDirectory.vue")
     },
     {
       path: "/PigPushToy",
@@ -79,7 +89,7 @@ export default new Router({
     {
       path: "/TwoSix",
       name: "TwoSix",
-      component: () => import("./views/2-6.vue")
+      component: () => import("./views/TwoSix.vue")
     },
     {
       path: "/Tetris",

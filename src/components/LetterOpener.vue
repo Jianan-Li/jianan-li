@@ -1,11 +1,13 @@
 <template>
   <div id="LetterOpener">
-    <!-- <SiteHeader /> -->
     <div class="page-body-modal">
       <img
         :src="require('@/assets/letter-opener/1.jpg')"
         alt="letter-opener-1"
-        class="project-title-media card-no-round"
+        class="project-title-media"
+        :class="[
+          this.$route.path == '/' ? 'card-top-round' : 'card-full-round'
+        ]"
       />
       <div class="project-content">
         <div class="project-title">Letter Opener</div>
@@ -59,17 +61,17 @@
           <img
             :src="require('@/assets/letter-opener/2.jpg')"
             alt="letter-opener-2"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/letter-opener/3.jpg')"
             alt="letter-opener-3"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/letter-opener/4.jpg')"
             alt="letter-opener-4"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
         </div>
 
@@ -82,7 +84,7 @@
           <img
             :src="require('@/assets/letter-opener/5.png')"
             alt="letter-opener-5"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
         </div>
 
@@ -103,55 +105,42 @@
           <img
             :src="require('@/assets/letter-opener/6.jpg')"
             alt="letter-opener-6"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/letter-opener/7.jpg')"
             alt="letter-opener-7"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/letter-opener/8.jpg')"
             alt="letter-opener-8"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/letter-opener/9.jpg')"
             alt="letter-opener-9"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/letter-opener/10.jpg')"
             alt="letter-opener-10"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/letter-opener/11.jpg')"
             alt="letter-opener-11"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
         </div>
-
-        <!-- <ProjectNavigation next="shi"></ProjectNavigation> -->
       </div>
     </div>
-    <!-- <SiteFooter /> -->
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import SiteHeader from "@/components/SiteHeader.vue";
-// import SiteFooter from "@/components/SiteFooter.vue";
-// import ProjectNavigation from "@/components/ProjectNavigation.vue";
-
 export default {
   name: "LetterOpener",
-  components: {
-    // SiteHeader,
-    // SiteFooter,
-    // ProjectNavigation
-  },
   mounted() {
     this.$emit("mounted");
   }

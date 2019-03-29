@@ -1,5 +1,5 @@
 <template>
-  <div class="my-info">
+  <header class="my-info">
     <div
       class="site-title"
       @click="window.width > 900 ? openModal('About') : $router.push(`/about`)"
@@ -9,10 +9,10 @@
         @mouseover="mouseoverTitle()"
         @mouseout="mouseoutTitle()"
       >
-        <div class="site-title-emoji">🙋🏻‍♂️</div>
+        <!-- <div class="site-title-emoji">🙋🏻‍♂️</div> -->
         <div class="site-title-word">
           <div class="site-title-text">
-            Hi! My name is <span class="site-title-emphasis">Jianan</span>,
+            Hi! My name is <span class="site-title-emphasis">Jianan Li</span>,
           </div>
           <div class="site-title-subtext">
             <span
@@ -20,8 +20,8 @@
               v-bind:class="{
                 'site-title-subtext-span-underline': showUnderline
               }"
-              >and I'm slowly figuring out my life's mission as a product
-              designer.</span
+              >and I'm passionately exploring the role of technology in
+              unlocking human potential.</span
             >
             <chevron-right-icon></chevron-right-icon>
           </div>
@@ -63,7 +63,7 @@
         ></component>
       </div>
     </transition>
-  </div>
+  </header>
 </template>
 
 <script>
@@ -187,8 +187,9 @@ export default {
   font-size: 1rem;
   margin-left: 2rem;
 }
-/* .site-title-word {
-} */
+.site-title-word {
+  margin-bottom: 1rem;
+}
 .site-title-text {
   margin-top: 0.35rem;
   color: var(--dark-color);
@@ -196,7 +197,7 @@ export default {
 .site-title-subtext {
   margin-top: 1.15rem;
   line-height: 1.5;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 .site-title-subtext-span {
   margin-right: 0.3rem;

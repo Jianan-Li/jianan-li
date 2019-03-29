@@ -1,27 +1,24 @@
 <template>
   <div>
     <div class="page-body">
-      <component :is="'Grocery'"></component>
-      <ProjectNavigation next="T3"></ProjectNavigation>
+      <component :is="'TwoSix'"></component>
+      <ProjectNavigation next="Tetris"></ProjectNavigation>
     </div>
     <SiteFooter />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import SiteHeader from "@/components/SiteHeader.vue";
 import SiteFooter from "@/components/SiteFooter.vue";
 import ProjectNavigation from "@/components/ProjectNavigation.vue";
-
-import Grocery from "@/components/Grocery.vue";
+import TwoSix from "@/components/TwoSix.vue";
 
 export default {
-  name: "GroceryPage",
+  name: "TwoSixPage",
   components: {
     SiteFooter,
     ProjectNavigation,
-    Grocery
+    TwoSix
   }
 };
 </script>

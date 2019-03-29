@@ -13,15 +13,17 @@
 /* This is the project title media section -----------------------------------*/
 .project-title-media {
   width: 100%;
-  margin: 3rem 0rem 0rem;
   display: block;
 }
+
+/* Responsive 100% Width YouTube iFrame Embed */
+/* https://www.h3xed.com/web-development/how-to-make-a-responsive-100-width-youtube-iframe-embed */
 .project-youtube-video-container {
   position: relative;
   width: 100%;
   height: 0;
   padding-bottom: 56.25%;
-  margin: 3rem 0rem 0rem;
+  overflow: hidden;
 }
 .project-youtube-video {
   position: absolute;

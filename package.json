@@ -12,11 +12,12 @@
     "@fortawesome/free-brands-svg-icons": "^5.6.3",
     "@fortawesome/free-solid-svg-icons": "^5.6.3",
     "@fortawesome/vue-fontawesome": "^0.1.4",
+    "@observablehq/runtime": "^4.0.1",
     "body-scroll-lock": "^2.6.1",
     "bulma": "^0.7.2",
     "d3": "^5.7.0",
     "feather-icons": "^4.10.0",
-    "firebase-tools": "^6.3.1",
+    "firebase-tools": "^6.5.0",
     "force-graph": "^1.12.6",
     "i": "^0.3.6",
     "npm": "^6.5.0",
@@ -40,6 +41,7 @@
     "node-sass": "^4.11.0",
     "prettier": "^1.15.3",
     "sass-loader": "^7.1.0",
+    "vue-svg-loader": "^0.12.0",
     "vue-template-compiler": "^2.5.22"
   }
 }

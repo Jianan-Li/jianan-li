@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <SiteHeader /> -->
     <div class="page-body">
       <component :is="'About'"></component>
       <ProjectNavigation next="Grocery"></ProjectNavigation>

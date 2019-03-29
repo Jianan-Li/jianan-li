@@ -3,7 +3,10 @@
     <div class="page-body-modal">
       <!-- <div class="project-title-media-container"> -->
       <video
-        class="project-title-media card-no-round"
+        class="project-title-media"
+        v-bind:class="[
+          this.$route.path == '/' ? 'card-top-round' : 'card-full-round'
+        ]"
         autoplay
         loop
         muted
@@ -45,8 +48,7 @@
               rel="noreferrer"
               >a visualization</a
             >
-            showing how I spent my time on this project and how it affected my
-            normal schedule.
+            showing how I spent my time on this project.
           </p>
         </div>
 

@@ -1,8 +1,12 @@
 <template>
   <div id="FloorPiano">
-    <!-- <SiteHeader /> -->
     <div class="page-body-modal">
-      <div class="project-youtube-video-container">
+      <div
+        class="project-youtube-video-container"
+        v-bind:class="[
+          this.$route.path == '/' ? 'card-top-round' : 'card-full-round'
+        ]"
+      >
         <iframe
           class="project-youtube-video"
           src="https://www.youtube.com/embed/F218XC4n0WI"
@@ -52,7 +56,7 @@
           <img
             :src="require('@/assets/floor-piano/1.jpg')"
             alt="floor-piano-1"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             Two sheets of aluminum foil are each taped to a piece of cardboard,
@@ -70,7 +74,7 @@
           <img
             :src="require('@/assets/floor-piano/2.jpg')"
             alt="floor-piano-2"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             In redesigning the pressure plate, we addressed the two major issues
@@ -88,7 +92,7 @@
           <img
             :src="require('@/assets/floor-piano/3.jpg')"
             alt="floor-piano-3"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             We decided to assemble a total of 25 pressure plates, as a
@@ -106,7 +110,7 @@
           <img
             :src="require('@/assets/floor-piano/4.jpg')"
             alt="floor-piano-4"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             The keyboard control unit consists of an Arduino Mega, an XBee
@@ -124,7 +128,7 @@
           <img
             :src="require('@/assets/floor-piano/5.jpg')"
             alt="floor-piano-5"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             The remote control is built around an ATtiny85 microcontroller. By
@@ -142,7 +146,7 @@
           <img
             :src="require('@/assets/floor-piano/6.jpg')"
             alt="floor-piano-6"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             The receiver is an Arduino Uno with an Xbee module attached to it.
@@ -159,7 +163,7 @@
           <img
             :src="require('@/assets/floor-piano/7.jpg')"
             alt="floor-piano-7"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
         </div>
 
@@ -168,30 +172,17 @@
           <img
             :src="require('@/assets/floor-piano/8.jpg')"
             alt="floor-piano-8"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
         </div>
-
-        <!-- <ProjectNavigation next="bus-stop-kiosk"></ProjectNavigation> -->
       </div>
     </div>
-    <!-- <SiteFooter /> -->
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import SiteHeader from "@/components/SiteHeader.vue";
-// import SiteFooter from "@/components/SiteFooter.vue";
-// import ProjectNavigation from "@/components/ProjectNavigation.vue";
-
 export default {
   name: "FloorPiano",
-  components: {
-    // SiteHeader,
-    // SiteFooter,
-    // ProjectNavigation
-  },
   mounted() {
     this.$emit("mounted");
   }

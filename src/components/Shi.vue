@@ -1,11 +1,13 @@
 <template>
   <div id="Shi">
-    <!-- <SiteHeader /> -->
     <div class="page-body-modal">
       <img
         :src="require('@/assets/shi/1.png')"
         alt="shi-1"
-        class="project-title-media card-no-round"
+        class="project-title-media"
+        :class="[
+          this.$route.path == '/' ? 'card-top-round' : 'card-full-round'
+        ]"
       />
       <div class="project-content">
         <div class="project-title">Shí Cup & Saucer</div>
@@ -51,30 +53,30 @@
           <img
             :src="require('@/assets/shi/2.jpg')"
             alt="shi-2"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <!-- <p>Paper Prototype</p> -->
           <img
             :src="require('@/assets/shi/3.jpg')"
             alt="shi-3"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <!-- <p>Butter Board Prototype</p> -->
           <img
             :src="require('@/assets/shi/4.jpg')"
             alt="shi-4"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <!-- <p>4-Ply Museum Board Prototype</p> -->
           <img
             :src="require('@/assets/shi/5.jpg')"
             alt="shi-5"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/shi/6.jpg')"
             alt="shi-6"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
         </div>
 
@@ -83,40 +85,27 @@
           <img
             :src="require('@/assets/shi/7.png')"
             alt="shi-7"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/shi/8.png')"
             alt="shi-8"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/shi/9.png')"
             alt="shi-9"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
         </div>
-
-        <!-- <ProjectNavigation next="kollapse"></ProjectNavigation> -->
       </div>
     </div>
-    <!-- <SiteFooter /> -->
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import SiteHeader from "@/components/SiteHeader.vue";
-// import SiteFooter from "@/components/SiteFooter.vue";
-// import ProjectNavigation from "@/components/ProjectNavigation.vue";
-
 export default {
   name: "Shi",
-  components: {
-    // SiteHeader,
-    // SiteFooter,
-    // ProjectNavigation
-  },
   mounted() {
     this.$emit("mounted");
   }

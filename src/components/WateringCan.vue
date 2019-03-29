@@ -1,11 +1,13 @@
 <template>
   <div id="WateringCan">
-    <!-- <SiteHeader /> -->
     <div class="page-body-modal">
       <img
         :src="require('@/assets/watering-can/1.jpg')"
         alt="watering-can-1"
-        class="project-title-media card-no-round"
+        class="project-title-media"
+        :class="[
+          this.$route.path == '/' ? 'card-top-round' : 'card-full-round'
+        ]"
       />
       <div class="project-content">
         <div class="project-title">20° Watering Can</div>
@@ -82,17 +84,17 @@
           <img
             :src="require('@/assets/watering-can/2.jpg')"
             alt="watering-can-2"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/watering-can/3.jpg')"
             alt="watering-can-3"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/watering-can/4.jpg')"
             alt="watering-can-4"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
         </div>
 
@@ -109,7 +111,7 @@
           <img
             :src="require('@/assets/watering-can/5.png')"
             alt="watering-can-5"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             After the CNC cutting is completed, I noticed a few defects on the
@@ -120,12 +122,12 @@
           <img
             :src="require('@/assets/watering-can/6.jpg')"
             alt="watering-can-6"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/watering-can/7.jpg')"
             alt="watering-can-7"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
         </div>
 
@@ -141,7 +143,7 @@
           <img
             :src="require('@/assets/watering-can/8.jpg')"
             alt="watering-can-8"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             After the silicone mold has cured and before making the mother mold,
@@ -153,17 +155,17 @@
           <img
             :src="require('@/assets/watering-can/9.jpg')"
             alt="watering-can-9"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/watering-can/10.jpg')"
             alt="watering-can-10"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/watering-can/11.jpg')"
             alt="watering-can-11"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             For slush casting, I used Smooth-On Smooth-Cast 65D. In my first
@@ -174,7 +176,7 @@
             information in Fusion 360, and achieved much better result.
           </p>
           <video
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
             autoplay
             loop
             muted
@@ -196,45 +198,32 @@
           <img
             :src="require('@/assets/watering-can/13.jpg')"
             alt="watering-can-13"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/watering-can/14.jpg')"
             alt="watering-can-14"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/watering-can/15.jpg')"
             alt="watering-can-15"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/watering-can/16.jpg')"
             alt="watering-can-16"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
         </div>
-
-        <!-- <ProjectNavigation next="letter-opener"></ProjectNavigation> -->
       </div>
     </div>
-    <!-- <SiteFooter /> -->
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import SiteHeader from "@/components/SiteHeader.vue";
-// import SiteFooter from "@/components/SiteFooter.vue";
-// import ProjectNavigation from "@/components/ProjectNavigation.vue";
-
 export default {
   name: "WateringCan",
-  components: {
-    // SiteHeader,
-    // SiteFooter,
-    // ProjectNavigation
-  },
   mounted() {
     this.$emit("mounted");
   }

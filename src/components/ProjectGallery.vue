@@ -32,14 +32,14 @@
                 type="video/mp4"
               />
             </video>
-          </div> -->
+          </div>-->
           <div class="gallery-picture-container card">
             <!-- v-if="project !== 'Grocery'" -->
             <picture>
               <!-- <source
                 type="image/webp"
                 :srcset="require(`@/assets/heroshots/${project}.webp`)"
-              /> -->
+              />-->
               <img
                 :src="require(`@/assets/heroshots/${project}.jpg`)"
                 :alt="project"
@@ -67,6 +67,7 @@ import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 
 import Grocery from "@/components/Grocery.vue";
 import T3 from "@/components/T3.vue";
+import IPDDirectory from "@/components/IPDDirectory.vue";
 import PigPushToy from "@/components/PigPushToy.vue";
 import WateringCan from "@/components/WateringCan.vue";
 import LetterOpener from "@/components/LetterOpener.vue";
@@ -85,6 +86,7 @@ export default {
   components: {
     Grocery,
     T3,
+    IPDDirectory,
     PigPushToy,
     WateringCan,
     LetterOpener,

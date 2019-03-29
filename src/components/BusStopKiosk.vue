@@ -1,8 +1,12 @@
 <template>
   <div id="BusStopKiosk">
-    <!-- <SiteHeader /> -->
     <div class="page-body-modal">
-      <div class="project-youtube-video-container">
+      <div
+        class="project-youtube-video-container"
+        v-bind:class="[
+          this.$route.path == '/' ? 'card-top-round' : 'card-full-round'
+        ]"
+      >
         <iframe
           class="project-youtube-video"
           src="https://www.youtube.com/embed/9zHf3e_IhcA"
@@ -61,7 +65,7 @@
           <img
             :src="require('@/assets/bus-stop-kiosk/1.jpg')"
             alt="bus-stop-kiosk-1"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             To confirm that it’s possible to get real-time bus information using
@@ -79,7 +83,7 @@
           <img
             :src="require('@/assets/bus-stop-kiosk/2.jpg')"
             alt="bus-stop-kiosk-2"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             Originally we wanted to use a flip-dot display due to its low
@@ -97,7 +101,7 @@
           <img
             :src="require('@/assets/bus-stop-kiosk/3.jpg')"
             alt="bus-stop-kiosk-3"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             We designed a backplate that the four LED matrices can be mounted
@@ -114,7 +118,7 @@
           <img
             :src="require('@/assets/bus-stop-kiosk/4.jpg')"
             alt="bus-stop-kiosk-4"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             One disadvantage of the LED matrix display is high power
@@ -132,7 +136,7 @@
           <img
             :src="require('@/assets/bus-stop-kiosk/5.jpg')"
             alt="bus-stop-kiosk-5"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             In addition to the LED display, we decided to create a dynamic map
@@ -151,7 +155,7 @@
           <img
             :src="require('@/assets/bus-stop-kiosk/6.jpg')"
             alt="bus-stop-kiosk-6"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             I designed this PCB in EAGLE, ordered the components from Digi-Key,
@@ -171,7 +175,7 @@
           <img
             :src="require('@/assets/bus-stop-kiosk/7.jpg')"
             alt="bus-stop-kiosk-7"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             The PCB Rev. 1 was designed to be used together with a solar charge
@@ -190,7 +194,7 @@
           <img
             :src="require('@/assets/bus-stop-kiosk/8.jpg')"
             alt="bus-stop-kiosk-8"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             Because of the two issues with the solar charge controller, I
@@ -208,7 +212,7 @@
           <img
             :src="require('@/assets/bus-stop-kiosk/9.jpg')"
             alt="bus-stop-kiosk-9"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             The quiescent current of the solar charger circuit I designed was
@@ -226,7 +230,7 @@
           <img
             :src="require('@/assets/bus-stop-kiosk/10.png')"
             alt="bus-stop-kiosk-10"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             This block diagram shows how both on-board and off-board components
@@ -239,12 +243,12 @@
           <img
             :src="require('@/assets/bus-stop-kiosk/11.jpg')"
             alt="bus-stop-kiosk-11"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/bus-stop-kiosk/12.jpg')"
             alt="bus-stop-kiosk-12"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             We constructed a stand for things to be mounted on. At the top, a
@@ -262,7 +266,7 @@
           <img
             :src="require('@/assets/bus-stop-kiosk/13.jpg')"
             alt="bus-stop-kiosk-13"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             By cutting it into pieces and reconnecting them with thin enameled
@@ -281,7 +285,7 @@
           <img
             :src="require('@/assets/bus-stop-kiosk/14.jpg')"
             alt="bus-stop-kiosk-14"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             We cut a tiny hole near the upper-left corner of the map printout,
@@ -299,37 +303,24 @@
           <img
             :src="require('@/assets/bus-stop-kiosk/15.jpg')"
             alt="bus-stop-kiosk-15"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <!-- <p>The final project demo took place twelve weeks after we started working on this project. We carried the Bus Stop Kiosk to the Duke Chapel bus stop, and placed it there for almost an hour for some final testing, recording the power generation and consumption data, and showing it to other Duke students. It didn't take long before pictures of the device started popping up on Facebook, Instagram, and other social media.</p> -->
         </div>
 
         <!-- <div class="project-section">
           <div class="project-section-title">INSTALLING IT ON CAMPUS</div>
-          <img :src="require('@/assets/bus-stop-kiosk/14.jpg')" alt="bus-stop-kiosk-14" class="project-process-pic card-no-hover">
+          <img :src="require('@/assets/bus-stop-kiosk/14.jpg')" alt="bus-stop-kiosk-14" class="project-process-pic card-full-round">
           <p>After a lengthy period of planning and negotiation, we finally got our Bus Stop Kiosk installed at the "Anderson at Lewis" bus stop on Central Campus. We removed the LED display and the bus location map from the stand, and mounted them to the frame of the bus stop shelter. The battery was stored in a metal box secured to the shelter frame, and the solar panel was mounted on top of the sloped roof, facing south.</p>
         </div> -->
-
-        <!-- <ProjectNavigation next="pig-push-toy"></ProjectNavigation> -->
       </div>
     </div>
-    <!-- <SiteFooter /> -->
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import SiteHeader from "@/components/SiteHeader.vue";
-// import SiteFooter from "@/components/SiteFooter.vue";
-// import ProjectNavigation from "@/components/ProjectNavigation.vue";
-
 export default {
   name: "BusStopKiosk",
-  components: {
-    // SiteHeader,
-    // SiteFooter,
-    // ProjectNavigation
-  },
   mounted() {
     this.$emit("mounted");
   }

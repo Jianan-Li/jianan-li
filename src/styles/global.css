@@ -190,10 +190,7 @@ img {
 picture, source, img, video{
   border-radius: inherit;
 }
-iframe {
-  /* border-radius: 0.2em; */
-  box-shadow: 0 1px 3px hsla(0, 0%, 100%, 0.12), 0 1px 2px hsla(0, 0%, 100%, 0.24);
-}
+
 svg.feather {
     height: 1em;
     margin-top: -4px;
@@ -204,7 +201,7 @@ svg.feather {
 }
 
 /* card and cutout ---------------------------------------------------------- */
-.card, .card-no-round, .card-no-hover {
+.card, .card-top-round, .card-full-round {
   box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.12), 0 1px 2px hsla(0, 0%, 0%, 0.24);
 }
 .cutout{
@@ -213,10 +210,10 @@ svg.feather {
 .card-modal {
   box-shadow: 0 10px 20px hsla(0, 0%, 0%, 0.7), 0 3px 6px hsla(0, 0%, 0%, 0.65);
 }
-.card, .card-no-hover, .card-modal, .cutout{
+.card, .card-full-round, .card-modal, .cutout{
   border-radius: var(--border-radius);
 }
-.card-no-round {
+.card-top-round {
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 .card {

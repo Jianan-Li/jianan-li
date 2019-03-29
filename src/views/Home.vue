@@ -1,12 +1,12 @@
 <template>
   <div class="home">
-    <!-- <SiteHeader /> -->
     <SiteMenu />
     <div class="page-body">
-      <SayHi id="about" class=""></SayHi>
-      <ProjectGallery id="HeroShots" :projects="projects"></ProjectGallery>
+      <SayHi id="about" class></SayHi>
+      <ProjectGallery id="HeroShots1" :projects="projects1"></ProjectGallery>
+      <Visualizations id="datavis"></Visualizations>
+      <ProjectGallery id="HeroShots2" :projects="projects2"></ProjectGallery>
       <Gallery id="sketches" path="sketches" :media="sketches"></Gallery>
-      <MyGraph id="interests"></MyGraph>
       <MyThings id="things"></MyThings>
       <ContactForm id="contact"></ContactForm>
     </div>
@@ -22,7 +22,7 @@ import SayHi from "@/components/SayHi.vue";
 import ProjectGallery from "@/components/ProjectGallery.vue";
 import Gallery from "@/components/Gallery.vue";
 import MyThings from "@/components/MyThings.vue";
-import MyGraph from "@/components/MyGraph.vue";
+import Visualizations from "@/components/Visualizations.vue";
 import ContactForm from "@/components/ContactForm.vue";
 import SiteFooter from "@/components/SiteFooter.vue";
 
@@ -34,14 +34,17 @@ export default {
     ProjectGallery,
     Gallery,
     MyThings,
-    MyGraph,
+    Visualizations,
     ContactForm,
     SiteFooter
   },
   data: () => ({
-    projects: {
-      categories: ["apps", "objects", "devices"],
-      apps: ["Grocery", "T3"],
+    projects1: {
+      categories: ["apps"],
+      apps: ["Grocery", "T3", "IPDDirectory"]
+    },
+    projects2: {
+      categories: ["objects", "devices"],
       objects: [
         "PigPushToy",
         "WateringCan",

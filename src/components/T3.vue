@@ -1,9 +1,11 @@
 <template>
   <div id="T3">
     <div class="page-body-modal">
-      <!-- <div class="project-title-media-container"> -->
       <video
-        class="project-title-media card-no-round"
+        class="project-title-media"
+        v-bind:class="[
+          this.$route.path == '/' ? 'card-top-round' : 'card-full-round'
+        ]"
         autoplay
         loop
         muted
@@ -11,15 +13,16 @@
       >
         <source :src="require('@/assets/t3/0.mp4')" type="video/mp4" />
       </video>
-      <!-- </div> -->
 
       <div class="project-content">
         <div class="project-title">T3</div>
         <div class="project-date">01/2019</div>
 
         <div class="project-description">
-          <p>A simple tic-tac-toe game.</p>
-          <p>This was a quick iOS programming exercise.</p>
+          <p>
+            A simple tic-tac-toe game wrote as a quick iOS Swift programming
+            exercise.
+          </p>
           <p>
             Links to
             <a
@@ -49,23 +52,15 @@
               ><p class="project-detail-value">Rotato</p></a
             >
           </div>
-        </div> -->
-
-        <!-- <div class="project-section">
-          <div class="project-section-title"></div>
-          <p></p>
-        </div> -->
+        </div>-->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
   name: "T3",
-  components: {},
   mounted() {
     this.$emit("mounted");
   }

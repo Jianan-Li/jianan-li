@@ -10,7 +10,7 @@
       viewBox="0 0 3100 1345"
       style="enable-background:new 0 0 3100 1345;"
       xml:space="preserve"
-      class="card-no-hover"
+      class="card-full-round"
     >
       <g id="Layer_3">
         <g id="FbDKUg_1_">

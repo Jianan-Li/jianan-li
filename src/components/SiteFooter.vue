@@ -1,16 +1,16 @@
 <template>
-  <div class="site-footer">
+  <footer>
     <div class="flex-container">
       <a
         href="http://instagram.com/jiananlidesign"
         target="_blank"
         rel="noreferrer"
       >
-        <instagram-icon class="custom-class"></instagram-icon>
+        <instagram-icon class="social-icon"></instagram-icon>
       </a>
 
       <a href="https://dribbble.com/jiananli" target="_blank" rel="noreferrer">
-        <i class="fab fa-dribbble"></i>
+        <i class="fab fa-dribbble social-icon"></i>
       </a>
 
       <a
@@ -18,15 +18,23 @@
         target="_blank"
         rel="noreferrer"
       >
-        <youtube-icon class="custom-class"></youtube-icon>
+        <youtube-icon class="social-icon"></youtube-icon>
       </a>
 
       <a href="https://github.com/Jianan-Li" target="_blank" rel="noreferrer">
-        <github-icon class="custom-class"></github-icon>
+        <github-icon class="social-icon" />
+      </a>
+
+      <a
+        href="https://observablehq.com/@jianan-li"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <ObservableIcon class="social-icon" />
       </a>
 
       <a href="mailto:ljn07050@gmail.com">
-        <mail-icon class="custom-class"></mail-icon>
+        <mail-icon class="social-icon"></mail-icon>
       </a>
 
       <a
@@ -34,11 +42,11 @@
         target="_blank"
         rel="noreferrer"
       >
-        <linkedin-icon class="custom-class"></linkedin-icon>
+        <linkedin-icon class="social-icon"></linkedin-icon>
       </a>
     </div>
     <MyNotes id="notes"></MyNotes>
-  </div>
+  </footer>
 </template>
 
 <script>
@@ -49,6 +57,7 @@ import {
   MailIcon,
   GithubIcon
 } from "vue-feather-icons";
+import ObservableIcon from "@/assets/icons/observable.svg";
 import MyNotes from "@/components/MyNotes.vue";
 
 export default {
@@ -60,6 +69,7 @@ export default {
     LinkedinIcon,
     MailIcon,
     GithubIcon,
+    ObservableIcon,
     MyNotes
   }
 };
@@ -67,20 +77,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.site-footer {
-  margin: 0rem;
+footer {
+  /* margin: 0rem; */
 }
 .flex-container {
   margin: 0rem;
   justify-content: center;
 }
-.custom-class {
+.social-icon {
   font-size: 1.5rem;
   margin: 0rem 1rem;
 }
 .fa-dribbble {
-  font-size: 1.5rem;
-  margin: 0rem 1rem;
+  padding: 0.05rem 0rem 0rem;
   -webkit-text-stroke: 0.45px white;
 }
 </style>

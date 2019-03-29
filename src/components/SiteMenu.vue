@@ -1,7 +1,7 @@
 <template>
-  <div class="site-menu">
+  <nav class="site-menu">
     <div
-      class="site-menu-section-1"
+      class="site-menu-item-container"
       v-for="menuItem in menuItems"
       :key="menuItem"
     >
@@ -51,7 +51,7 @@
         contact
       </div>
     </router-link> -->
-  </div>
+  </nav>
 </template>
 
 <script>
@@ -61,14 +61,7 @@ export default {
   name: "SiteMenu",
   props: {},
   data: () => ({
-    menuItems: [
-      "apps",
-      "objects",
-      "devices",
-      "sketches",
-      "interests",
-      "things"
-    ],
+    menuItems: ["apps", "datavis", "objects", "devices", "sketches", "things"],
     activeSection: "",
     pageIsScrolling: false,
     mouseoverOverride: false,
@@ -116,9 +109,7 @@ export default {
       }, TIMEOUT);
     },
     handleScroll() {
-      // console.log(
-      //   document.getElementById("contact").getBoundingClientRect().top
-      // );
+      // console.log(document.getElementById("apps").getBoundingClientRect().top);
       if (!this.pageIsScrolling) {
         // console.log("page is not scrolling");
         if (
@@ -126,27 +117,27 @@ export default {
         ) {
           this.activeSection = "contact";
         } else if (
-          document.getElementById("things").getBoundingClientRect().top < 1
+          document.getElementById("things").getBoundingClientRect().top < 160
         ) {
           this.activeSection = "things";
         } else if (
-          document.getElementById("interests").getBoundingClientRect().top < 1
-        ) {
-          this.activeSection = "interests";
-        } else if (
-          document.getElementById("sketches").getBoundingClientRect().top < 1
+          document.getElementById("sketches").getBoundingClientRect().top < 160
         ) {
           this.activeSection = "sketches";
         } else if (
-          document.getElementById("devices").getBoundingClientRect().top < 1
+          document.getElementById("devices").getBoundingClientRect().top < 160
         ) {
           this.activeSection = "devices";
         } else if (
-          document.getElementById("objects").getBoundingClientRect().top < 1
+          document.getElementById("objects").getBoundingClientRect().top < 160
         ) {
           this.activeSection = "objects";
         } else if (
-          document.getElementById("apps").getBoundingClientRect().top < 1
+          document.getElementById("datavis").getBoundingClientRect().top < 160
+        ) {
+          this.activeSection = "datavis";
+        } else if (
+          document.getElementById("apps").getBoundingClientRect().top < 160
         ) {
           this.activeSection = "apps";
         } else {

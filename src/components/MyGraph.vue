@@ -12,70 +12,31 @@
           <feOffset result="offOut" in="SourceAlpha" dx="2" dy="2" />
           <feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
           <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
-        </filter> -->
+        </filter>-->
         <filter id="dropshadow" x="0" y="0" width="130%" height="130%">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur" />
+          <feGaussianBlur
+            in="SourceAlpha"
+            stdDeviation="3"
+            result="blur"
+          ></feGaussianBlur>
           <!-- stdDeviation is how much to blur -->
-          <feOffset dx="2" dy="2" result="offset-blur" />
+          <feOffset dx="0" dy="2" result="offset-blur"></feOffset>
           <!-- how much to offset -->
           <feComponentTransfer>
-            <feFuncA type="linear" slope="0.4" result="offset-opacity-blur" />
+            <feFuncA
+              type="linear"
+              slope="0.4"
+              result="offset-opacity-blur"
+            ></feFuncA>
             <!-- slope is the opacity of the shadow -->
           </feComponentTransfer>
           <feMerge>
-            <feMergeNode in="offset-opacity-blur" />
+            <feMergeNode in="offset-opacity-blur"></feMergeNode>
             <!-- this contains the offset blurred image -->
-            <feMergeNode in="SourceGraphic" />
+            <feMergeNode in="SourceGraphic"></feMergeNode>
             <!-- this contains the element that the filter is applied to -->
           </feMerge>
         </filter>
-        <!-- <pattern id="Andrew" x="0" y="0" height="1" width="1">
-          <image
-            x="0"
-            y="0"
-            width="60"
-            height="60"
-            xlink:href="https://yt3.ggpht.com/a-/AN66SAzs8DmwITc00osvw7xV_blFvWfisegTxaxhVw=s288-mo-c-c0xffffffff-rj-k-no"
-          ></image>
-        </pattern>
-        <pattern id="Jordan" x="0" y="0" height="1" width="1">
-          <image
-            id="Jordan-img"
-            x="0"
-            y="0"
-            width="44"
-            height="44"
-            :xlink:href="require(`@/assets/avatars/jordan.png`)"
-          ></image>
-        </pattern> -->
-        <pattern
-          id="innerGrid"
-          :width="innerGridSize"
-          :height="innerGridSize"
-          patternUnits="userSpaceOnUse"
-        >
-          <rect
-            width="100%"
-            height="100%"
-            fill="none"
-            stroke="#CCCCCC7A"
-            stroke-width="0.5"
-          />
-        </pattern>
-        <pattern
-          id="grid"
-          :width="gridSize"
-          :height="gridSize"
-          patternUnits="userSpaceOnUse"
-        >
-          <rect
-            width="100%"
-            height="100%"
-            fill="url(#innerGrid)"
-            stroke="#CCCCCC7A"
-            stroke-width="1.5"
-          />
-        </pattern>
       </defs>
     </svg>
   </div>
@@ -116,7 +77,7 @@ export default {
         enabled: true,
         strength: 1,
         iterations: 1,
-        radius: 55
+        radius: 50
       },
       forceX: {
         enabled: true,
@@ -125,13 +86,13 @@ export default {
       },
       forceY: {
         enabled: true,
-        strength: 0.28,
+        strength: 0.32,
         y: 0.5
       },
       link: {
         enabled: true,
-        distance: 35,
-        iterations: 1
+        distance: 55,
+        iterations: 2
       }
     },
     data: {
@@ -140,9 +101,6 @@ export default {
     }
   }),
   computed: {
-    innerGridSize() {
-      return this.gridSize / 10;
-    },
     nodes() {
       return this.data.nodes;
     },
@@ -151,10 +109,10 @@ export default {
     }
   },
   created() {},
-  mounted() {
+  async mounted() {
     // Get initial width when things are mounted
     // also add listener for width change
-    this.width = document.getElementById("interests").clientWidth;
+    this.width = document.getElementById("datavis").clientWidth;
     this.height = (this.width * 2) / 3;
     // this.height = this.width>576? (this.width * 2) / 3 : this.width;
     window.addEventListener("resize", this.resizeCanvas);
@@ -162,10 +120,15 @@ export default {
     // Attach event listener to prevent scrolling inside the nodes graph
     // document.getElementById("nodes").addEventListener("wheel", this.scrollListener);
 
+    // You can set data in any ways you want
+    this.data = await d3.json(
+      "https://gist.githubusercontent.com/Jianan-Li/c56cd37d21ed6b23e73ebcbe0a1bd12d/raw/myInterestGraph.json"
+    );
+
     // Moved here from created
     this.simulation = d3
-      .forceSimulation()
-      .force("link", d3.forceLink())
+      .forceSimulation(this.nodes)
+      .force("link", d3.forceLink(this.links).id(d => d.id))
       .force("charge", d3.forceManyBody())
       .force("collide", d3.forceCollide())
       .force("center", d3.forceCenter())
@@ -183,33 +146,17 @@ export default {
       .zoom()
       .scaleExtent([1 / 3, 2])
       .on("zoom", this.zoomed);
-    svg.call(this.zoom);
 
-    // A background grid to help user experience
-    // The width and height depends on the minimum scale extent and
-    // the + 10% and negative index to create an infinite grid feel
-    // The precedence of this element is important since you'll have
-    // click events on the elements above the grid
-    // this.selections.grid = svg
-    //   .append("rect")
-    //   .attr("x", "-50%")
-    //   .attr("y", "-50%")
-    //   .attr("width", "450%")
-    //   .attr("height", "450%")
-    //   .attr("fill", "url(#grid)");
+    svg
+      .call(this.zoom)
+      .call(
+        d3.zoom().transform,
+        d3.zoomIdentity.translate(125, 83).scale(0.735)
+      );
 
     this.selections.graph = svg.append("g");
-    // const graph = this.selections.graph;
-
-    // You can set data in any ways you want
-    d3.json("/mydata.json")
-      .then(data => {
-        this.data = data;
-      })
-      .catch(error => {
-        // eslint-disable-next-line
-        console.error(`Failed to retrieve data. Error: ${error}`);
-      });
+    this.selections.graph.attr("transform", "translate(125,83) scale(.735)");
+    // this.zoom.scaleTo(this.selections.graph, 0.735);
   },
   beforeDestroy: function() {
     window.removeEventListener("resize", this.resizeCanvas);
@@ -223,60 +170,55 @@ export default {
         return "translate(" + d.x + "," + d.y + ")";
       };
 
-      const link = d => {
-        return (
-          "M" +
-          d.source.x +
-          "," +
-          d.source.y +
-          " L" +
-          d.target.x +
-          "," +
-          d.target.y
-        );
-      };
-
       const graph = this.selections.graph;
-      graph.selectAll("path").attr("d", link);
+      graph
+        .selectAll("line")
+        .attr("x1", d => d.source.x)
+        .attr("y1", d => d.source.y)
+        .attr("x2", d => d.target.x)
+        .attr("y2", d => d.target.y);
       graph.selectAll("circle").attr("transform", transform);
       graph.selectAll("text").attr("transform", transform);
     },
     updateData() {
-      this.simulation.nodes(this.nodes);
-      this.simulation.force("link").links(this.links);
+      // this.simulation.nodes(this.nodes);
+      // this.simulation.force("link").links(this.links);
 
       const simulation = this.simulation;
       const graph = this.selections.graph;
 
       // Links should only exit if not needed anymore
       graph
-        .selectAll("path")
+        .selectAll("line")
         .data(this.links)
         .exit()
         .remove();
 
       graph
-        .selectAll("path")
+        .append("g")
+        .attr("id", "links")
+        .selectAll("line")
         .data(this.links)
         .enter()
-        .append("path")
+        .append("line")
         .attr("class", "link")
         .attr("stroke-width", l => this.pathStrokeWidth[l.value]);
 
       // Nodes should always be redrawn to avoid lines above them
-      graph.select("#circles").remove();
+      graph.select("#nodes").remove();
       graph.selectAll("circle").remove();
 
       // const circles = graph.append("g").attr("id", "circles");
       graph
         .append("g")
-        .attr("id", "circles")
-        // .attr("filter", "url(#f3)")
+        .attr("id", "nodes")
+        // .attr("filter", "url(#dropshadow)")
         .selectAll("circle")
         .data(this.nodes)
         .enter()
         .append("circle")
         .attr("r", d => this.circleSizes[d.group])
+        .attr("id", d => d.id)
         .attr("class", d =>
           d.link ? " my-graph-circle url" : "my-graph-circle nonurl"
         )
@@ -297,6 +239,7 @@ export default {
         .selectAll("text")
         .data(this.nodes)
         .enter();
+
       textRegion
         .filter(d => d.name)
         .append("text")
@@ -307,6 +250,7 @@ export default {
         .attr("text-anchor", "middle")
         .attr("dominant-baseline", "middle")
         .text(d => d.name);
+
       textRegion
         .filter(d => d.name1)
         .append("text")
@@ -317,6 +261,7 @@ export default {
         .attr("text-anchor", "middle")
         .attr("dominant-baseline", "middle")
         .text(d => d.name1);
+
       textRegion
         .filter(d => d.name2)
         .append("text")
@@ -327,6 +272,7 @@ export default {
         .attr("text-anchor", "middle")
         .attr("dominant-baseline", "middle")
         .text(d => d.name2);
+
       textRegion
         .filter(d => d.name3)
         .append("text")
@@ -337,6 +283,7 @@ export default {
         .attr("text-anchor", "middle")
         .attr("dominant-baseline", "middle")
         .text(d => d.name3);
+
       textRegion
         .filter(d => d.name4)
         .append("text")
@@ -347,6 +294,7 @@ export default {
         .attr("text-anchor", "middle")
         .attr("dominant-baseline", "middle")
         .text(d => d.name4);
+
       textRegion
         .filter(d => d.name5)
         .append("text")
@@ -403,17 +351,6 @@ export default {
     },
     zoomed() {
       const transform = d3.event.transform;
-      // The trick here is to move the grid in a way that the user doesn't perceive
-      // that the axis aren't really moving
-      // The actual movement is between 0 and gridSize only for x and y
-      // const translate =
-      //   (transform.x % (this.gridSize * transform.k)) +
-      //   "," +
-      //   (transform.y % (this.gridSize * transform.k));
-      // this.selections.grid.attr(
-      //   "transform",
-      //   "translate(" + translate + ") scale(" + transform.k + ")"
-      // );
       this.selections.graph.attr("transform", transform);
 
       // Define some world boundaries based on the graph total size
@@ -466,23 +403,11 @@ export default {
           .ease(d3.easeElastic)
           .duration(800)
           .attr("r", this.circleSizes[d.group] * this.enlargeRatioOnHover);
-        // .attr("transform", "scale(1.5)")
-
-        // d3.select("#Jordan-img")
-        //   .transition()
-        //   .ease(d3.easeElastic)
-        //   .duration(800)
-        //   .attr("transform", "scale(2.25)")
-        // .attr("x", "0")
-        // .attr("y", "0")
 
         mouseOverText
           .transition()
           .ease(d3.easeElastic)
           .duration(800)
-          // .attr("x", 0)
-          // .attr("fill", "#ffffff")
-          // .attr("fill-opacity", "0")
           .attr(
             "font-size",
             d => this.fontSizes[d.group] * this.enlargeRatioOnHover
@@ -500,21 +425,11 @@ export default {
         .ease(d3.easeElastic)
         .duration(800)
         .attr("r", d => this.circleSizes[d.group]);
-      // .style("fill", d => "")
-
-      // d3.select("#Jordan-img")
-      //   .transition()
-      //   .ease(d3.easeElastic)
-      //   .duration(800)
-      // .attr("transform", "scale(0.66667)")
 
       mouseOutText
         .transition()
         .ease(d3.easeElastic)
         .duration(800)
-        // .attr("x", 0)
-        // .attr("y", "0.31em")
-        // .attr("fill-opacity", "1")
         .attr("font-size", d => this.fontSizes[d.group]);
     },
     nodeClick(d) {
@@ -524,7 +439,7 @@ export default {
     },
     resizeCanvas() {
       if (window.innerWidth != this.previousWindowWidth) {
-        this.width = document.getElementById("interests").clientWidth;
+        this.width = document.getElementById("datavis").clientWidth;
         this.height = (this.width * 2) / 3;
         // this.height = this.width>576? (this.width * 2) / 3 : this.width;
         this.previousWindowWidth = window.innerWidth;
@@ -589,7 +504,7 @@ export default {
 .highlight {
   opacity: 1;
 }
-path.link {
+line.link {
   fill: none;
   stroke: #aaaaaa;
 }

@@ -3,9 +3,9 @@
     <div class="page-body-modal">
       <div class="about-content">
         <div class="about-intro">
-          As a product designer, I hope to create things that help people unlock
-          their potential for personal growth and live more purposeful and
-          fulfilling lives.
+          As an engineer and product designer, I hope to create things that
+          would help people unlock their potential for personal growth and live
+          more purposeful and fulfilling lives.
 
           <!-- This goal rests on three
          interconnected building blocks. 1) Help deliver the most relevant
@@ -35,12 +35,12 @@
             <div class="about-section-content">
               <div class="about-section-item">Apple</div>
               <div class="about-section-item-detail">
-                Electrical Engineering Intern
+                Electrical Engineering Intern - testing, schematic design
               </div>
               <div class="about-date">2016</div>
               <div class="about-section-item">Lutron</div>
               <div class="about-section-item-detail">
-                Electrical Engineering Intern
+                Electrical Engineering Intern - testing
               </div>
               <div class="about-date">2015</div>
               <!-- <div class="about-section-item">Duke University ECE Design Lab</div>
@@ -88,7 +88,30 @@
           <div class="flex-container about-section-flex-container">
             <div class="about-section-title">SKILLS</div>
             <div class="about-section-content">
-              <div class="flex-container">
+              <div id="skills" class="flex-container">
+                <div class="">
+                  <div class="about-section-item">Processes</div>
+                  <div class="about-section-item-detail">
+                    User Research, Data Analytics and Visualization,
+                    Wireframing, Prototyping, Software Development, CAD,
+                    Electronics design
+                  </div>
+                </div>
+                <div class="">
+                  <div class="about-section-item">Tools</div>
+                  <div class="about-section-item-detail">
+                    Adobe CS, Figma, Xcode, Fusion 360, Rhino, KeyShot, EAGLE
+                  </div>
+                </div>
+                <div class="">
+                  <div class="about-section-item">Coding</div>
+                  <div class="about-section-item-detail">
+                    HTML5, CSS3, JavaScript, React, Vue.js, D3.js, Python,
+                    pandas, Swift, C/C++
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="flex-container">
                 <div class="">
                   <div class="about-section-item">Processes</div>
                   <div class="about-section-item-detail">User research</div>
@@ -121,7 +144,7 @@
                   <div class="about-section-item-detail">Swift</div>
                   <div class="about-section-item-detail">C/C++</div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

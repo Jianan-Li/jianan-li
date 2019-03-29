@@ -1,10 +1,11 @@
 <template>
   <div id="TwoSix">
-    <!-- <SiteHeader /> -->
     <div class="page-body-modal">
-      <!-- <div class="project-title-media-container"> -->
       <video
-        class="project-title-media card-no-round"
+        class="project-title-media"
+        v-bind:class="[
+          this.$route.path == '/' ? 'card-top-round' : 'card-full-round'
+        ]"
         autoplay
         loop
         muted
@@ -16,7 +17,6 @@
           /> -->
         <source :src="require('@/assets/2-6/0.mp4')" type="video/mp4" />
       </video>
-      <!-- </div> -->
 
       <div class="project-content">
         <div class="project-title">2-6 Dining Set</div>
@@ -68,12 +68,12 @@
           <img
             :src="require('@/assets/2-6/1.jpg')"
             alt="2-6-1"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/2-6/2.jpg')"
             alt="2-6-2"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
         </div>
 
@@ -82,17 +82,17 @@
           <img
             :src="require('@/assets/2-6/3.jpg')"
             alt="2-6-3"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/2-6/4.jpg')"
             alt="2-6-4"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/2-6/5.jpg')"
             alt="2-6-5"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
         </div>
 
@@ -103,12 +103,12 @@
           <img
             :src="require('@/assets/2-6/6.jpg')"
             alt="2-6-6"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/2-6/7.jpg')"
             alt="2-6-7"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
         </div>
 
@@ -119,12 +119,12 @@
           <img
             :src="require('@/assets/2-6/8.jpg')"
             alt="2-6-8"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/2-6/9.jpg')"
             alt="2-6-9"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
         </div>
 
@@ -133,40 +133,27 @@
           <img
             :src="require('@/assets/2-6/10.jpg')"
             alt="2-6-10"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/2-6/11.jpg')"
             alt="2-6-11"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/2-6/12.jpg')"
             alt="2-6-12"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
         </div>
-
-        <!-- <ProjectNavigation next="tetris"></ProjectNavigation> -->
       </div>
     </div>
-    <!-- <SiteFooter /> -->
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import SiteHeader from "@/components/SiteHeader.vue";
-// import SiteFooter from "@/components/SiteFooter.vue";
-// import ProjectNavigation from "@/components/ProjectNavigation.vue";
-
 export default {
   name: "TwoSix",
-  components: {
-    // SiteHeader,
-    // SiteFooter,
-    // ProjectNavigation
-  },
   mounted() {
     this.$emit("mounted");
   }

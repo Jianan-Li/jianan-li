@@ -1,10 +1,11 @@
 <template>
   <div id="PigPushToy">
-    <!-- <SiteHeader /> -->
     <div class="page-body-modal">
-      <!-- <div class="project-title-media-container"> -->
       <video
-        class="project-title-media card-no-round"
+        class="project-title-media"
+        v-bind:class="[
+          this.$route.path == '/' ? 'card-top-round' : 'card-full-round'
+        ]"
         autoplay
         loop
         muted
@@ -19,7 +20,6 @@
           type="video/mp4"
         />
       </video>
-      <!-- </div> -->
 
       <div class="project-content">
         <div class="project-title">Pig Push Toy</div>
@@ -94,15 +94,15 @@
           <img
             :src="require('@/assets/pig-push-toy/1.jpg')"
             alt="pig-push-toy-1"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/pig-push-toy/2.jpg')"
             alt="pig-push-toy-2"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <video
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
             autoplay
             loop
             muted
@@ -129,7 +129,7 @@
           <img
             :src="require('@/assets/pig-push-toy/4.jpg')"
             alt="pig-push-toy-4"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
         </div>
 
@@ -145,7 +145,7 @@
           <img
             :src="require('@/assets/pig-push-toy/5.jpg')"
             alt="pig-push-toy-5"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <p>
             The main body is a little too big for the Nomad, so I decided to
@@ -161,17 +161,17 @@
           <img
             :src="require('@/assets/pig-push-toy/6.gif')"
             alt="pig-push-toy-6"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/pig-push-toy/7.jpg')"
             alt="pig-push-toy-7"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/pig-push-toy/8.jpg')"
             alt="pig-push-toy-8"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
         </div>
 
@@ -184,45 +184,32 @@
           <img
             :src="require('@/assets/pig-push-toy/9.jpg')"
             alt="pig-push-toy-9"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/pig-push-toy/10.jpg')"
             alt="pig-push-toy-10"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/pig-push-toy/11.jpg')"
             alt="pig-push-toy-11"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
           <img
             :src="require('@/assets/pig-push-toy/12.jpg')"
             alt="pig-push-toy-12"
-            class="project-process-pic card-no-hover"
+            class="project-process-pic card-full-round"
           />
         </div>
-
-        <!-- <ProjectNavigation next="watering-can"></ProjectNavigation> -->
       </div>
     </div>
-    <!-- <SiteFooter /> -->
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import SiteHeader from "@/components/SiteHeader.vue";
-// import SiteFooter from "@/components/SiteFooter.vue";
-// import ProjectNavigation from "@/components/ProjectNavigation.vue";
-
 export default {
   name: "PigPushToy",
-  components: {
-    // SiteHeader,
-    // SiteFooter,
-    // ProjectNavigation
-  },
   mounted() {
     this.$emit("mounted");
   }
